@@ -1,29 +1,29 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: forrester-1
-  namespace: forrester-1
+  name: hashiconf-1
+  namespace: hashiconf-1
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: forrester-1
-  namespace: forrester-1
+  name: hashiconf-1
+  namespace: hashiconf-1
   labels:
-    app: forrester-1
+    app: hashiconf-1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: forrester-1
+      app: hashiconf-1
   template:
     metadata:
       labels:
-        app: forrester-1
+        app: hashiconf-1
     spec:
       containers:
-        - name: forrester-1
-          image: codydearkland/ld-demo-forrester:1
+        - name: hashiconf-1
+          image: codydearkland/ld-demo-hashiconf:1
           imagePullPolicy: Always
           ports:
             - name: web
@@ -33,13 +33,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: forrester-1
-  name: forrester-lb
+  namespace: hashiconf-1
+  name: hashiconf-lb
 spec:
   ports:
   - port: 80
     protocol: TCP
     targetPort: 3000
   selector:
-    app: forrester-1
+    app: hashiconf-1
   type: LoadBalancer
