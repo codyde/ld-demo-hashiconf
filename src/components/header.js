@@ -9,7 +9,7 @@ export default function Header(props) {
         <img src={ld} className="mx-auto max-h-30" alt="logo" />
         </div>
         <div className="text-base md:text-4xl pb-4 2xl:text-6xl">
-          <p>LaunchDarkly Welcomes you to <span className="text-transparent bg-clip-text bg-gradient-to-br from-ldyellow to-lddblue">HashiConf 2022</span>, Los Angeles!</p>
+          <p>Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-br from-ldyellow to-lddblue">HashiConf 2022</span>, Los Angeles!</p>
         </div>      
       </div>
     </div>
