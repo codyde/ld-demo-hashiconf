@@ -21,7 +21,8 @@ function App() {
       (
         <header className="App-header grid col-start-1 col-span-4 row-start-2">
         <div className="body bg-ldgray px-8 py-4 mb-5 w-full shadow-2xl">
-        <p className="text-m xl:text-4xl">LaunchDarkly Welcomes you to <span className="text-ldyellow">HashiConf 2022</span>, Los Angeles!</p>
+          <p className="text-m xl:text-8xl font-bold">LaunchDarkly</p>
+          <p className="text-m xl:text-4xl">Welcomes you to <span className="text-ldyellow">HashiConf 2022</span>, Los Angeles!</p>
         </div>
         <Intro release={release} />
       </header>
