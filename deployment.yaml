@@ -1,29 +1,29 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: hashiconf-1
-  namespace: hashiconf-1
+  name: hashiconf-2
+  namespace: hashiconf-2
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hashiconf-1
-  namespace: hashiconf-1
+  name: hashiconf-2
+  namespace: hashiconf-2
   labels:
-    app: hashiconf-1
+    app: hashiconf-2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hashiconf-1
+      app: hashiconf-2
   template:
     metadata:
       labels:
-        app: hashiconf-1
+        app: hashiconf-2
     spec:
       containers:
-        - name: hashiconf-1
-          image: codydearkland/ld-demo-hashiconf:1
+        - name: hashiconf-2
+          image: codydearkland/ld-demo-hashiconf:2
           imagePullPolicy: Always
           ports:
             - name: web
@@ -33,7 +33,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: hashiconf-1
+  namespace: hashiconf-2
   name: hashiconf-lb
 spec:
   ports:
@@ -41,5 +41,5 @@ spec:
     protocol: TCP
     targetPort: 3000
   selector:
-    app: hashiconf-1
+    app: hashiconf-2
   type: LoadBalancer
