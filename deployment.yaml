@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: forrester-1
+  namespace: forrester-1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forrester-1
+  namespace: forrester-1
+  labels:
+    app: forrester-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: forrester-1
+  template:
+    metadata:
+      labels:
+        app: forrester-1
+    spec:
+      containers:
+        - name: forrester-1
+          image: codydearkland/ld-demo-forrester:1
+          imagePullPolicy: Always
+          ports:
+            - name: web
+              containerPort: 3000
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: forrester-1
+  name: forrester-lb
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: forrester-1
+  type: LoadBalancer
